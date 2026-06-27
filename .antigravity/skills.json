@@ -1,0 +1,24 @@
+{
+    "skills": [
+        {
+            "name": "render_hero_banner",
+            "description": "Generates a clean, conversion-first political hero header with deep green split layout, background image placeholder, dynamic text typography, and primary/secondary action buttons.",
+            "pattern": "Flex/Grid section containing Slogan (Not Words, But Actions Matter), Name (Samuel Mathai), Position Target (FOMAA Vice President Candidate 2026-2028), and dual-action buttons."
+        },
+        {
+            "name": "render_metric_grid",
+            "description": "Transforms business, political, and charity statistics into high-impact, scannable structural grid cards.",
+            "pattern": "3 or 4-column visual layout highlighting '25+ Years of Charity', '18+ Years Healthcare Business', '15+ Years Retail Industry', and 'DMA/FOMAA Leadership Milestones'."
+        },
+        {
+            "name": "render_accordion_or_tabs_platform",
+            "description": "Renders Samuel Mathai's core initiatives and future provisions into cleanly toggled sections to avoid visual clutter.",
+            "pattern": "Interactive categories for Youth Empowerment, Women Entrepreneurship, Senior Care Mission, and Cultural Infrastructure."
+        },
+        {
+            "name": "render_compliant_campaign_footer",
+            "description": "Constructs a legally compliant political website footer featuring social hooks, placeholder newsletter intake, and a distinct bordered FEC-style disclaimer block.",
+            "pattern": "Bordered center-aligned disclaimer text reading '[PAID FOR BY CAMPAIGN COMMITTEE PLACEHOLDER]'"
+        }
+    ]
+}
