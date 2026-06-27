@@ -484,7 +484,7 @@ ol {
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: linear-gradient(135deg, var(--clr-accent) 0%, #d05528 40%, var(--clr-accent-dark) 100%);
+  background: linear-gradient(135deg, red 0%, blue 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
