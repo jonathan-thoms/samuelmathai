@@ -1152,14 +1152,16 @@ ol {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   width: 100vw;
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   position: relative;
+  padding: var(--sp-md) 0;
 }
 
 .photo-strip__track {
   display: flex;
   gap: var(--sp-md);
-  animation: stripScroll 30s linear infinite;
+  animation: stripScroll 60s linear infinite;
   width: max-content;
 }
 

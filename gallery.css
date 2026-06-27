@@ -1,0 +1,293 @@
+/* ============================================
+   GALLERY PAGE — gallery.css
+   ============================================ */
+
+/* Gallery Hero */
+.gallery-hero {
+  padding: 10rem 0 4rem;
+  background: var(--grad-banner);
+  text-align: center;
+}
+
+.gallery-hero__title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-hero);
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-bottom: var(--sp-md);
+  line-height: 1.1;
+}
+
+.gallery-hero__subtitle {
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Gallery Sections */
+.gallery-section {
+  padding: var(--sp-3xl) 0;
+}
+
+.gallery-section--alt {
+  background: var(--clr-off-white);
+}
+
+.gallery-section__header {
+  max-width: 800px;
+  margin-bottom: var(--sp-xl);
+}
+
+.gallery-section__title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--clr-charcoal);
+  margin-bottom: var(--sp-md);
+  line-height: 1.2;
+}
+
+.gallery-section__desc {
+  font-size: var(--fs-body);
+  color: var(--clr-mid-gray);
+  line-height: 1.8;
+}
+
+.gallery-section__desc strong {
+  color: var(--clr-dark-gray);
+  font-weight: 600;
+}
+
+/* ============================================
+   GALLERY GRID (gg) — Shared Base
+   ============================================ */
+.gg {
+  display: grid;
+  gap: var(--sp-sm);
+}
+
+.gg__item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.gg__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  z-index: 2;
+}
+
+.gg__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.gg__item:hover img {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   LAYOUT 1: Hero + Grid (Sports — 9 images)
+   1 large hero spanning left 2 cols + 2 rows,
+   remaining images fill a 3-col grid
+   ============================================ */
+.gg--hero-grid {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+}
+
+.gg--hero-grid .gg__item--hero {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+/* ============================================
+   LAYOUT 2: 4-Column Masonry (Political — 24)
+   Standard 4-col grid, selected items span 2 cols
+   ============================================ */
+.gg--masonry-4 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 240px;
+}
+
+.gg--masonry-4 .gg__item--wide {
+  grid-column: span 2;
+}
+
+/* ============================================
+   LAYOUT 3: 3-Column Editorial (Arts — 19)
+   3-col grid with featured wide items at intervals
+   ============================================ */
+.gg--editorial {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 260px;
+}
+
+.gg--editorial .gg__item--wide {
+  grid-column: span 2;
+}
+
+/* ============================================
+   LAYOUT 4: Charity Grid (12 images)
+   4-col grid with tall (portrait) & square items
+   ============================================ */
+.gg--charity {
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+}
+
+.gg--charity .gg__item--tall {
+  grid-row: span 2;
+}
+
+.gg--charity .gg__item--sq {
+  aspect-ratio: 1 / 1;
+}
+
+/* ============================================
+   LAYOUT 5: Personal Grid (10 images)
+   Clean individual frames — portrait & square
+   ============================================ */
+.gg--personal {
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-md);
+}
+
+.gg--personal .gg__item--portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.gg--personal .gg__item--sq {
+  aspect-ratio: 1 / 1;
+}
+
+.gg--personal .gg__item--wide {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+}
+
+/* Active nav link */
+.navbar__link--active {
+  color: var(--clr-accent) !important;
+}
+
+/* Back to Home CTA */
+.gallery-cta {
+  padding: var(--sp-3xl) 0;
+  background: var(--grad-banner);
+}
+
+.gallery-cta__inner {
+  text-align: center;
+}
+
+.gallery-cta__title {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--clr-white);
+  margin-bottom: var(--sp-sm);
+}
+
+.gallery-cta__subtitle {
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--sp-lg);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .gg--masonry-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gg--asymmetric {
+    grid-template-columns: 1.5fr 1fr;
+    grid-auto-rows: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-hero {
+    padding: 8rem 0 3rem;
+  }
+
+  .gallery-hero__title {
+    font-size: var(--fs-h1);
+  }
+
+  .gg--hero-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+
+  .gg--hero-grid .gg__item--hero {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .gg--masonry-4 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+
+  .gg--masonry-4 .gg__item--wide {
+    grid-column: span 1;
+  }
+
+  .gg--editorial {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+
+  .gg--editorial .gg__item--wide {
+    grid-column: span 2;
+  }
+
+  .gg--charity {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 160px;
+  }
+
+  .gg--charity .gg__item--tall {
+    grid-row: span 2;
+  }
+
+  .gg--personal {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gg--hero-grid,
+  .gg--masonry-4,
+  .gg--editorial,
+  .gg--charity {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 200px;
+  }
+
+  .gg--hero-grid .gg__item--hero,
+  .gg--editorial .gg__item--wide {
+    grid-column: 1 / -1;
+  }
+
+  .gg--charity .gg__item--tall {
+    grid-row: span 2;
+  }
+
+  .gg--personal {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
