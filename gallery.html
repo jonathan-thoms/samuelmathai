@@ -127,6 +127,7 @@
         <div class="gg__item"><img src="pol_4.jpeg" alt="Community politics" loading="lazy"></div>
         <div class="gg__item"><img src="pol_14.jpeg" alt="Community politics" loading="lazy"></div>
         <div class="gg__item"><img src="pol_15.jpeg" alt="Community politics" loading="lazy"></div>
+        <div class="gg__item"><img src="pol_27.jpeg" alt="Community politics" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -245,6 +246,8 @@
             loading="lazy"></div>
         <div class="gg__item gg__item--sq"><img src="personal_7.jpeg" alt="Samuel Mathai — inspiration" loading="lazy">
         </div>
+        <div class="gg__item gg__item--wide"><img src="personal_13.jpeg" alt="Samuel Mathai — community" loading="lazy">
+        </div>
       </div>
     </div>
     </div>
@@ -327,31 +330,75 @@
     // --- Gallery Lightbox ---
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox';
-    lightbox.innerHTML = '<img class="lightbox__img" src="" alt="Gallery image">';
+    lightbox.innerHTML = `
+      <button class="lightbox__close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="lightbox__img-wrap">
+        <img class="lightbox__img" src="" alt="Gallery image">
+      </div>`;
     document.body.appendChild(lightbox);
 
     const lightboxImg = lightbox.querySelector('.lightbox__img');
+    const imgWrap = lightbox.querySelector('.lightbox__img-wrap');
+    const closeBtn = lightbox.querySelector('.lightbox__close');
 
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      imgWrap.classList.remove('zoomed');
+      lightboxImg.style.transformOrigin = 'center center';
+      document.body.style.overflow = '';
+    }
+
+    // Open lightbox on image click
     document.querySelectorAll('.gg__item').forEach(item => {
       item.addEventListener('click', () => {
         const img = item.querySelector('img');
         if (img) {
           lightboxImg.src = img.src;
+          imgWrap.classList.remove('zoomed');
+          lightboxImg.style.transformOrigin = 'center center';
           lightbox.classList.add('active');
           document.body.style.overflow = 'hidden';
         }
       });
     });
 
-    lightbox.addEventListener('click', () => {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
+    // Close button
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeLightbox();
     });
 
+    // Click image to toggle zoom
+    imgWrap.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (imgWrap.classList.contains('zoomed')) {
+        imgWrap.classList.remove('zoomed');
+        lightboxImg.style.transformOrigin = 'center center';
+      } else {
+        // Zoom to click position
+        const rect = imgWrap.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+        imgWrap.classList.add('zoomed');
+      }
+    });
+
+    // Click dark overlay (outside image) to close
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Escape to close
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
+        closeLightbox();
       }
     });
   </script>
