@@ -584,6 +584,12 @@
         <form class="action__form" id="signup-form" onsubmit="handleSignup(event)">
           <input type="email" class="action__input" id="signup-email" placeholder="Enter your email address" required
             aria-label="Email address for campaign updates">
+          <input type="tel" class="action__input" id="signup-phone" placeholder="Phone Number"
+            aria-label="Phone number for campaign updates">
+          <label class="action__checkbox-label" id="sms-consent-label">
+            <input type="checkbox" class="action__checkbox" id="sms-consent">
+            <span class="action__checkbox-text">By providing your number, you agree to receive recurring updates and community event notifications from Mathavu, LLC. Msg&amp;Data Rates May Apply. Reply HELP for help, STOP to opt-out. SMS SHARING DISCLOSURE: No mobile data will be shared with third parties/affiliates for marketing/promotional purposes at any time. View our <a href="/privacy" style="color: var(--clr-accent); text-decoration: underline;">Privacy Policy</a>.</span>
+          </label>
           <button type="submit" class="action__submit" id="signup-submit">
             Subscribe
           </button>

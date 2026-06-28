@@ -1424,6 +1424,42 @@ ol {
   box-shadow: 0 4px 15px rgba(184, 148, 44, 0.4);
 }
 
+.action__checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  max-width: 520px;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.action__checkbox {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--clr-accent);
+  cursor: pointer;
+}
+
+.action__checkbox-text {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.55;
+  font-family: var(--ff-body);
+}
+
+.action__checkbox-text a {
+  color: var(--clr-accent);
+  text-decoration: underline;
+}
+
+.action__checkbox-text a:hover {
+  color: var(--clr-accent-light);
+}
+
 /* Footer */
 .footer {
   background: var(--clr-black);
