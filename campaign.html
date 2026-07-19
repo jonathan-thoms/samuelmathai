@@ -238,6 +238,20 @@
         font-size: var(--fs-h1);
       }
 
+      .campaign-video__player {
+        aspect-ratio: 9 / 16;
+        object-fit: contain;
+        background: #000;
+      }
+
+      .campaign-video__play-btn {
+        display: none;
+      }
+
+      .campaign-video__wrapper video {
+        controls: true;
+      }
+
       .campaign-posters__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--sp-md);
@@ -430,6 +444,12 @@
     // --- Video Play Button ---
     const video = document.getElementById('campaign-video');
     const playBtn = document.getElementById('video-play-btn');
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    // On mobile, show native controls immediately (no custom play button)
+    if (isMobile) {
+      video.controls = true;
+    }
 
     playBtn.addEventListener('click', () => {
       video.play();
@@ -438,8 +458,10 @@
     });
 
     video.addEventListener('ended', () => {
-      playBtn.classList.remove('hidden');
-      video.controls = false;
+      if (!isMobile) {
+        playBtn.classList.remove('hidden');
+        video.controls = false;
+      }
     });
 
     // --- Copy Video Link ---
