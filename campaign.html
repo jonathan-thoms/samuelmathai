@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaign Media — Samuel Mathai for FOMAA Vice President 2026–2028</title>
+  <meta name="description"
+    content="Watch the official campaign video and view election posters for Samuel Mathai's FOMAA Vice President campaign 2026-2028.">
+  <meta property="og:title" content="Campaign Media — Samuel Mathai for FOMAA VP">
+  <meta property="og:description" content="Official campaign video and election posters for FOMAA VP 2026-2028.">
+  <meta property="og:type" content="video.other">
+  <meta property="og:video" content="https://www.samuelmathai.com/campaign_video.mp4">
+  <meta property="og:video:type" content="video/mp4">
+  <meta property="og:image" content="https://www.samuelmathai.com/personal_6.jpeg">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="gallery.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    /* Campaign Page Styles */
+    .campaign-hero {
+      padding: 10rem 0 4rem;
+      background: var(--grad-banner);
+      text-align: center;
+    }
+
+    .campaign-hero__title {
+      font-family: var(--ff-heading);
+      font-size: var(--fs-hero);
+      font-weight: 700;
+      color: var(--clr-white);
+      margin-bottom: var(--sp-md);
+      line-height: 1.1;
+    }
+
+    .campaign-hero__subtitle {
+      font-size: var(--fs-body);
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Video Section */
+    .campaign-video {
+      padding: var(--sp-3xl) 0;
+      background: var(--clr-charcoal);
+    }
+
+    .campaign-video__wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+      position: relative;
+      background: #000;
+    }
+
+    .campaign-video__player {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+    }
+
+    .campaign-video__share {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-md);
+      margin-top: var(--sp-lg);
+      flex-wrap: wrap;
+    }
+
+    .campaign-video__share-label {
+      font-family: var(--ff-accent);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .campaign-video__share-link {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-xs);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-pill);
+      padding: 0.5rem 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: var(--fs-small);
+      font-family: var(--ff-body);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .campaign-video__share-link:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .campaign-video__share-link.copied {
+      background: rgba(46, 204, 113, 0.2);
+      border-color: rgba(46, 204, 113, 0.4);
+      color: #2ecc71;
+    }
+
+    .campaign-video__share-link svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Posters Section */
+    .campaign-posters {
+      padding: var(--sp-3xl) 0;
+    }
+
+    .campaign-posters__header {
+      text-align: center;
+      margin-bottom: var(--sp-xl);
+    }
+
+    .campaign-posters__title {
+      font-family: var(--ff-heading);
+      font-size: var(--fs-h2);
+      font-weight: 700;
+      color: var(--clr-charcoal);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .campaign-posters__desc {
+      font-size: var(--fs-body);
+      color: var(--clr-mid-gray);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .campaign-posters__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--sp-lg);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .campaign-posters__item {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-out);
+      aspect-ratio: 3 / 4;
+    }
+
+    .campaign-posters__item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .campaign-posters__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--duration-normal) var(--ease-out);
+    }
+
+    .campaign-posters__item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* CTA */
+    .campaign-cta {
+      padding: var(--sp-3xl) 0;
+      background: var(--grad-banner);
+      text-align: center;
+    }
+
+    .campaign-cta__title {
+      font-family: var(--ff-heading);
+      font-size: var(--fs-h2);
+      font-weight: 700;
+      color: var(--clr-white);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .campaign-cta__subtitle {
+      font-size: var(--fs-body);
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: var(--sp-lg);
+    }
+
+    @media (max-width: 768px) {
+      .campaign-hero {
+        padding: 8rem 0 3rem;
+      }
+
+      .campaign-hero__title {
+        font-size: var(--fs-h1);
+      }
+
+      .campaign-posters__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-md);
+      }
+
+      .campaign-video__share {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .campaign-posters__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar scrolled" id="navbar" role="navigation" aria-label="Primary Navigation">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__logo" id="nav-logo">
+        <span class="navbar__logo-monogram">SM</span>
+      </a>
+      <div class="navbar__links" id="nav-links">
+        <a href="/#meet" class="navbar__link">Meet Samuel</a>
+        <a href="/#platform" class="navbar__link">Platform</a>
+        <a href="/#accomplishments" class="navbar__link">Accomplishments</a>
+        <a href="/gallery" class="navbar__link">Gallery</a>
+        <a href="/campaign" class="navbar__link navbar__link--active">Campaign</a>
+      </div>
+      <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CAMPAIGN HERO -->
+  <section class="campaign-hero">
+    <div class="container">
+      <p class="section-label" style="color: var(--clr-accent);">Election 2026</p>
+      <h1 class="campaign-hero__title">Campaign Media</h1>
+      <p class="campaign-hero__subtitle">
+        Official campaign video, posters, and media for Samuel Mathai's candidacy
+        for FOMAA Vice President (Term 2026–2028).
+      </p>
+    </div>
+  </section>
+
+  <!-- FEATURED VIDEO -->
+  <section class="campaign-video" id="video">
+    <div class="container">
+      <div class="campaign-video__wrapper">
+        <video class="campaign-video__player" controls preload="metadata" poster="personal_6.jpeg">
+          <source src="campaign_video.mp4" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+      </div>
+
+      <div class="campaign-video__share">
+        <span class="campaign-video__share-label">Share this video</span>
+        <button class="campaign-video__share-link" id="copy-video-link" onclick="copyVideoLink()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+          </svg>
+          <span id="copy-text">Copy Link</span>
+        </button>
+        <a class="campaign-video__share-link"
+          href="https://wa.me/?text=Watch%20Samuel%20Mathai%27s%20Campaign%20Video%20%E2%80%94%20https%3A%2F%2Fsamuelmathai.com%2Fcampaign%23video"
+          target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .612.638l4.584-1.187A11.96 11.96 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.313 0-4.453-.757-6.184-2.037l-.432-.332-3.09.8.84-3.012-.364-.572A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMPAIGN POSTERS -->
+  <section class="campaign-posters" id="posters">
+    <div class="container">
+      <div class="campaign-posters__header reveal">
+        <p class="section-label" style="color: var(--clr-accent);">Official Posters</p>
+        <h2 class="campaign-posters__title">Election Posters & Creatives</h2>
+        <p class="campaign-posters__desc">
+          Campaign posters and design materials for the FOMAA Vice President Election 2026.
+        </p>
+      </div>
+
+      <div class="campaign-posters__grid reveal">
+        <div class="campaign-posters__item"><img src="poster_1.jpeg" alt="Campaign Poster 1" loading="lazy"></div>
+        <div class="campaign-posters__item"><img src="poster_2.jpeg" alt="Campaign Poster 2" loading="lazy"></div>
+        <div class="campaign-posters__item"><img src="poster_3.jpeg" alt="Campaign Poster 3" loading="lazy"></div>
+        <div class="campaign-posters__item"><img src="poster_4.jpeg" alt="Campaign Poster 4" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK TO HOME CTA -->
+  <section class="campaign-cta">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="campaign-cta__title">Ready to Support the Movement?</h2>
+        <p class="campaign-cta__subtitle">Learn more about Samuel's platform and vision for FOMAA.</p>
+        <a href="/" class="btn btn--primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <div class="footer__brand-icon">SM</div>
+          <p class="footer__brand-text">Samuel Mathai for FOMAA VP 2026–2028</p>
+        </div>
+        <div class="footer__links">
+          <a href="/#meet" class="footer__link">Meet Samuel</a>
+          <a href="/#platform" class="footer__link">Platform</a>
+          <a href="/#accomplishments" class="footer__link">Accomplishments</a>
+          <a href="/gallery" class="footer__link">Gallery</a>
+          <a href="/campaign" class="footer__link">Campaign</a>
+          <a href="/privacy" class="footer__link">Privacy Policy</a>
+        </div>
+      </div>
+
+      <div class="footer__disclaimer" id="disclaimer">
+        <p>
+          Paid for by Samuel Mathai for FOMAA VP Campaign. This community initiative and digital infrastructure
+          is formally funded, operated, and managed by Mathavu, LLC.
+        </p>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Samuel Mathai Campaign. All rights reserved. · <a href="/privacy"
+            style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Nav Toggle
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      toggle.classList.toggle('active');
+      toggle.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    });
+
+    // --- Reveal on Scroll ---
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // --- Copy Video Link ---
+    function copyVideoLink() {
+      const url = 'https://samuelmathai.com/campaign#video';
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById('copy-video-link');
+        const text = document.getElementById('copy-text');
+        text.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          text.textContent = 'Copy Link';
+          btn.classList.remove('copied');
+        }, 2500);
+      });
+    }
+
+    // --- Poster Lightbox ---
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+      <button class="lightbox__close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="lightbox__img-wrap">
+        <img class="lightbox__img" src="" alt="Campaign poster">
+      </div>`;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('.lightbox__img');
+    const imgWrap = lightbox.querySelector('.lightbox__img-wrap');
+    const closeBtn = lightbox.querySelector('.lightbox__close');
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      imgWrap.classList.remove('zoomed');
+      lightboxImg.style.transformOrigin = 'center center';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.campaign-posters__item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        if (img) {
+          lightboxImg.src = img.src;
+          imgWrap.classList.remove('zoomed');
+          lightboxImg.style.transformOrigin = 'center center';
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeLightbox();
+    });
+
+    imgWrap.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (imgWrap.classList.contains('zoomed')) {
+        imgWrap.classList.remove('zoomed');
+        lightboxImg.style.transformOrigin = 'center center';
+      } else {
+        const rect = imgWrap.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        lightboxImg.style.transformOrigin = `${x}% ${y}%`;
+        imgWrap.classList.add('zoomed');
+      }
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
+  </script>
+
+</body>
+
+</html>
