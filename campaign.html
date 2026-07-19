@@ -437,24 +437,6 @@
       playBtn.classList.add('hidden');
     });
 
-    video.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        playBtn.classList.add('hidden');
-      } else {
-        video.pause();
-        playBtn.classList.remove('hidden');
-      }
-    });
-
-    video.addEventListener('pause', () => {
-      if (!video.ended) playBtn.classList.remove('hidden');
-    });
-
-    video.addEventListener('play', () => {
-      playBtn.classList.add('hidden');
-    });
-
     video.addEventListener('ended', () => {
       playBtn.classList.remove('hidden');
       video.controls = false;
